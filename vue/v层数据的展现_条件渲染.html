@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    a{
+        display: block;
+    }
+    </style>
+</head>
+<script src="./js/vue.js"></script>
+<body>
+    <div id="app">
+        bl:{{bl}}
+        <br>
+        bl2:{{bl2}}
+        <br>
+        bl3:{{bl3}}
+        <br>
+        bl4:{{bl4}}
+        <br>
+        bl5:{{bl5}}
+        <hr>
+        <!-- 条件渲染 -->
+        <div v-show="bl">true</div>
+        <div v-show="bl2">null</div>
+        <div v-show="bl3">undefined</div>
+        <div v-show="bl4">0</div>
+        <div v-show="bl5">空字符串</div>
+    </div>
+    <script>
+        // console.log("vue",Vue);
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                title:"标题",
+                bl:true,
+                bl2:null,
+                bl3:undefined,
+                bl4:0,
+                bl5:""
+            },
+            
+        })
+    </script>
+</body>
+</html>

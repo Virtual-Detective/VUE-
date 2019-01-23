@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="./js/vue.js"></script>
+<body>
+    <div id="app">
+        <h3 :title="title">{{title}}</h3>
+        <h3 v-html="title"></h3>
+        <p>{{duanluo}}</p>
+
+        <!-- 在vue1.x版本中可用，2.x已移除 -->
+        <!-- <img src="{{src}}"> -->
+
+        <img v-bind:src="src" alt="">
+        <!-- 简写 -->
+        <img :src="src" alt="">
+
+        <input type="button" value="按钮" v-on:click="show">
+    </div>
+    <script>
+        // console.log("vue",Vue);
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                title:"标题",
+                duanluo:"段落",
+                src:"https://www.baidu.com/img/bd_logo1.png"
+            },
+            methods:{
+                show:function(){
+                    alert("ok")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

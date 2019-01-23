@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="./js/vue.js"></script>
+<body>
+    <div id="app">
+        {{num+4}}
+        <br>
+        {{arr}}
+        <br>
+        {{json}}
+        <br>
+        {{strong}}
+    </div>
+    <script>
+        // console.log("vue",Vue);
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                num:110,
+                arr:["aa","bb","cc"],
+                json:{a:1,b:2},
+                strong:"<strong>强壮<strong>"
+            }
+        })
+    </script>
+</body>
+</html>

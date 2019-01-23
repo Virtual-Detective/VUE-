@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="./js/vue.js"></script>
+<script>
+    window.onload=function(){
+        let vm=new Vue({
+            el:"#app",
+            data:{strong:"<strong>强壮</strong>"}
+        })
+    }
+</script>
+<body>
+    <div id="app">
+        <div>{{strong}}</div>
+        <hr>
+        <div v-html="strong"></div>
+        <!-- 指令:<div v-text="strong"></div> -->
+    </div>
+</body>
+</html>

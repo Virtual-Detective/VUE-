@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="./js/vue.js"></script>
+
+<body>
+    <div id="app">
+        <input type="text" :value="iptUser" @input="changeUser">
+        <br>
+        <input type="text" :value="iptContent" @input="changeContent">
+        <br>
+        <input type="button" value="提交" @click="add">
+        <br>
+        <ul>
+            <li v-show="list.length==0">暂无数据</li>
+            <li v-for="(item,index) in list" :key="item.id">
+                <span>{{item.content}}</span>
+                -.-
+                <i>{{item.name}}</i>
+                <a href="javascript:;" @click="del(index)">删除</a>
+                <a href="javascript:;" @click="check(index,$event)">修改</a>
+            </li>
+        </ul>
+        <input type="button" value="清空" @click="clear">
+    </div>
+</body>
+<script>
+    let vm=new Vue({
+        el:"#app",
+        data:{
+            iptUser:"bulala",
+            iptContent:"hahaha",
+            list:[
+                {name:"alex",content:"gogogo",id:1},
+                {name:"li`ang",content:"fire",id:2}
+            ]
+        },
+        methods:{
+          add(){
+              this.list.push({
+                  id:this.list.length+1,
+                  name:this.iptUser,
+                  content:this.iptContent
+              });
+              this.iptUser=this.iptContent="";
+          },
+          del(index){
+              this.list.splice(index,1);
+          },
+          check(index,ev){
+            //   this.list[index].content=this.iptContent;
+              ev.srcElement.parentNode.style.color="red";  
+          },
+          clear(){
+              this.list=[];
+          },
+          changeUser:function(ev){
+            this.iptUser=ev.srcElement.value;
+          },
+          changeContent:function(ev){
+            this.iptContent=ev.srcElement.value;
+          }  
+        }
+    })
+</script>
+</html>
